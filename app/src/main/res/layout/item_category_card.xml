@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="8dp">
+
+    <!-- Circle icon container: 52dp x 52dp -->
+    <FrameLayout
+        android:id="@+id/categoryIconContainer"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:background="@drawable/bg_category_icon">
+
+        <!-- Category vector icon: 24dp, tint red -->
+        <ImageView
+            android:id="@+id/ivCategoryIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/content_desc_category_icon"
+            android:tint="@color/colorPrimary"
+            tools:src="@drawable/ic_category_tech" />
+    </FrameLayout>
+
+    <!-- Category name: 11sp bold white centered -->
+    <TextView
+        android:id="@+id/tvCategoryName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:textColor="@color/colorTextPrimary"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        tools:text="Tech" />
+
+</LinearLayout>

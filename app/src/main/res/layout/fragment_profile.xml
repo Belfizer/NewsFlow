@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    L2 REQUIREMENT (Top Section): ConstraintLayout with Guideline + Barrier + Chain
+    L3 REQUIREMENT (Stats row): LinearLayout with layout_weight="1" for 3 equal boxes
+    L4 REQUIREMENT (Settings rows): RelativeLayout with layout_toRightOf, layout_below, layout_alignParentEnd
+-->
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context=".ProfileFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="80dp">
+
+        <!-- ============================================================
+             TOP SECTION — L2: ConstraintLayout with Guideline + Barrier + Chain
+             ============================================================ -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/profileTopSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:background="@drawable/bg_header_gradient">
+
+            <!-- L2: Vertical Guideline at 40% — avatar left, text right -->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.40" />
+
+            <!-- Avatar: 72dp circle -->
+            <ImageView
+                android:id="@+id/ivAvatar"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/content_desc_avatar"
+                android:src="@drawable/ic_avatar"
+                app:layout_constraintEnd_toStartOf="@id/guidelineProfile"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Profile Name: 18sp bold white -->
+            <TextView
+                android:id="@+id/tvProfileName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/profile_name"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/guidelineProfile"
+                app:layout_constraintTop_toTopOf="@id/ivAvatar" />
+
+            <!-- Email: 13sp secondary -->
+            <TextView
+                android:id="@+id/tvProfileEmail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="4dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/profile_email"
+                android:textColor="@color/colorTextSecondary"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/guidelineProfile"
+                app:layout_constraintTop_toBottomOf="@id/tvProfileName" />
+
+            <!-- Bio: 12sp muted -->
+            <TextView
+                android:id="@+id/tvProfileBio"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="4dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/profile_bio"
+                android:textColor="@color/colorTextMuted"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/guidelineProfile"
+                app:layout_constraintTop_toBottomOf="@id/tvProfileEmail" />
+
+            <!-- L2 BARRIER: end barrier from name and email -->
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrierProfileText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="ivAvatar,tvProfileBio" />
+
+            <!-- L2 HORIZONTAL CHAIN: Edit, Share, Settings buttons -->
+            <!-- Edit button (chain start) -->
+            <TextView
+                android:id="@+id/btnProfileEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_button_primary"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/btn_edit"
+                android:textColor="@color/colorWhite"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnProfileShare"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/barrierProfileText" />
+
+            <!-- Share button (chain middle) -->
+            <TextView
+                android:id="@+id/btnProfileShare"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_button_outline"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/btn_share"
+                android:textColor="@color/colorPrimary"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnProfileSettings"
+                app:layout_constraintStart_toEndOf="@id/btnProfileEdit"
+                app:layout_constraintTop_toBottomOf="@id/barrierProfileText" />
+
+            <!-- Settings button (chain end) -->
+            <TextView
+                android:id="@+id/btnProfileSettings"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_button_outline"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/btn_settings"
+                android:textColor="@color/colorPrimary"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/btnProfileShare"
+                app:layout_constraintTop_toBottomOf="@id/barrierProfileText" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- ============================================================
+             L3 REQUIREMENT: Stats row — LinearLayout with layout_weight="1"
+             ============================================================ -->
+        <LinearLayout
+            android:id="@+id/statsRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="16dp">
+
+            <!-- Stat 1: Articles Read — weight="1" -->
+            <LinearLayout
+                android:id="@+id/statArticlesRead"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@drawable/bg_stats_box"
+                android:gravity="center"
+                android:padding="12dp">
+
+                <TextView
+                    android:id="@+id/tvStatArticlesCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_articles_read"
+                    style="@style/TextStyle.ProfileStat" />
+
+                <TextView
+                    android:id="@+id/tvStatArticlesLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/label_articles_read"
+                    style="@style/TextStyle.ProfileStatLabel" />
+            </LinearLayout>
+
+            <!-- Divider between stat boxes -->
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorBorder" />
+
+            <!-- Stat 2: Saved — weight="1" -->
+            <LinearLayout
+                android:id="@+id/statSaved"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@drawable/bg_stats_box"
+                android:gravity="center"
+                android:padding="12dp">
+
+                <TextView
+                    android:id="@+id/tvStatSavedCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_saved_count"
+                    style="@style/TextStyle.ProfileStat" />
+
+                <TextView
+                    android:id="@+id/tvStatSavedLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/label_saved"
+                    style="@style/TextStyle.ProfileStatLabel" />
+            </LinearLayout>
+
+            <!-- Divider -->
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorBorder" />
+
+            <!-- Stat 3: Top Category — weight="1" -->
+            <LinearLayout
+                android:id="@+id/statTopCategory"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@drawable/bg_stats_box"
+                android:gravity="center"
+                android:padding="12dp">
+
+                <TextView
+                    android:id="@+id/tvStatCategoryValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_top_category"
+                    style="@style/TextStyle.ProfileStat" />
+
+                <TextView
+                    android:id="@+id/tvStatCategoryLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/label_top_category"
+                    style="@style/TextStyle.ProfileStatLabel" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- ============================================================
+             L4 REQUIREMENT: Settings rows using RelativeLayout
+             layout_toRightOf, layout_below, layout_alignParentEnd
+             ============================================================ -->
+
+        <!-- Settings Row 1: Push Notifications + Toggle -->
+        <RelativeLayout
+            android:id="@+id/settingRowNotifications"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/colorSurface"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <!-- Left: icon circle -->
+            <FrameLayout
+                android:id="@+id/iconNotif"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/bg_category_icon">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_notification"
+                    android:tint="@color/colorPrimary"
+                    android:contentDescription="@null" />
+            </FrameLayout>
+
+            <!-- Center: title + subtitle using layout_toRightOf and layout_below -->
+            <TextView
+                android:id="@+id/tvNotifTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/iconNotif"
+                android:layout_marginStart="12dp"
+                android:layout_centerVertical="true"
+                android:text="@string/setting_notifications"
+                style="@style/SettingRowTitle" />
+
+            <TextView
+                android:id="@+id/tvNotifSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/iconNotif"
+                android:layout_below="@id/tvNotifTitle"
+                android:layout_marginStart="12dp"
+                android:text="@string/setting_notifications_sub"
+                style="@style/SettingRowSubtitle" />
+
+            <!-- Right: toggle switch — layout_alignParentEnd + layout_centerVertical -->
+            <Switch
+                android:id="@+id/switchNotifications"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:checked="true"
+                android:thumb="@null"
+                android:contentDescription="@string/setting_notifications" />
+        </RelativeLayout>
+
+        <!-- Divider -->
+        <View android:layout_width="match_parent" android:layout_height="1dp"
+            android:background="@drawable/bg_divider" />
+
+        <!-- Settings Row 2: Auto-Save Articles + Toggle -->
+        <RelativeLayout
+            android:id="@+id/settingRowAutoSave"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/colorSurface"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <FrameLayout
+                android:id="@+id/iconAutoSave"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/bg_category_icon">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_bookmark"
+                    android:tint="@color/colorPrimary"
+                    android:contentDescription="@null" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tvAutoSaveTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/iconAutoSave"
+                android:layout_marginStart="12dp"
+                android:layout_centerVertical="true"
+                android:text="@string/setting_autosave"
+                style="@style/SettingRowTitle" />
+
+            <TextView
+                android:id="@+id/tvAutoSaveSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/iconAutoSave"
+                android:layout_below="@id/tvAutoSaveTitle"
+                android:layout_marginStart="12dp"
+                android:text="@string/setting_autosave_sub"
+                style="@style/SettingRowSubtitle" />
+
+            <Switch
+                android:id="@+id/switchAutoSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:checked="false"
+                android:thumb="@null"
+                android:contentDescription="@string/setting_autosave" />
+        </RelativeLayout>
+
+        <!-- Divider -->
+        <View android:layout_width="match_parent" android:layout_height="1dp"
+            android:background="@drawable/bg_divider" />
+
+        <!-- Settings Row 3: Edit Profile + Arrow -->
+        <RelativeLayout
+            android:id="@+id/settingRowEditProfile"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/colorSurface"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <FrameLayout
+                android:id="@+id/iconEditProfile"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/bg_category_icon">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_profile"
+                    android:tint="@color/colorPrimary"
+                    android:contentDescription="@null" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tvEditProfileTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/iconEditProfile"
+                android:layout_marginStart="12dp"
+                android:layout_centerVertical="true"
+                android:text="@string/setting_edit_profile"
+                style="@style/SettingRowTitle" />
+
+            <TextView
+                android:id="@+id/tvEditProfileSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/iconEditProfile"
+                android:layout_below="@id/tvEditProfileTitle"
+                android:layout_marginStart="12dp"
+                android:text="@string/setting_edit_profile_sub"
+                style="@style/SettingRowSubtitle" />
+
+            <ImageView
+                android:id="@+id/ivEditProfileArrow"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_arrow_right"
+                android:contentDescription="@null" />
+        </RelativeLayout>
+
+        <!-- Divider -->
+        <View android:layout_width="match_parent" android:layout_height="1dp"
+            android:background="@drawable/bg_divider" />
+
+        <!-- Settings Row 4: Share App + Arrow -->
+        <RelativeLayout
+            android:id="@+id/settingRowShareApp"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/colorSurface"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <FrameLayout
+                android:id="@+id/iconShareApp"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/bg_category_icon">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_share"
+                    android:tint="@color/colorPrimary"
+                    android:contentDescription="@null" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tvShareAppTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/iconShareApp"
+                android:layout_marginStart="12dp"
+                android:layout_centerVertical="true"
+                android:text="@string/setting_share_app"
+                style="@style/SettingRowTitle" />
+
+            <TextView
+                android:id="@+id/tvShareAppSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/iconShareApp"
+                android:layout_below="@id/tvShareAppTitle"
+                android:layout_marginStart="12dp"
+                android:text="@string/setting_share_app_sub"
+                style="@style/SettingRowSubtitle" />
+
+            <ImageView
+                android:id="@+id/ivShareAppArrow"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_arrow_right"
+                android:contentDescription="@null" />
+        </RelativeLayout>
+
+        <!-- Bottom divider -->
+        <View android:layout_width="match_parent" android:layout_height="1dp"
+            android:background="@drawable/bg_divider" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

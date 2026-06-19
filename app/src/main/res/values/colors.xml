@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Brand Colors -->
+    <color name="colorPrimary">#E63946</color>
+    <color name="colorPrimaryDark">#C1121F</color>
+
+    <!-- Background Colors -->
+    <color name="colorBackground">#0D0D0D</color>
+    <color name="colorSurface">#1A1A1A</color>
+    <color name="colorSurfaceVariant">#242424</color>
+
+    <!-- Border / Divider Colors -->
+    <color name="colorBorder">#2E2E2E</color>
+    <color name="colorDivider">#1F1F1F</color>
+
+    <!-- Text Colors -->
+    <color name="colorTextPrimary">#F5F5F5</color>
+    <color name="colorTextSecondary">#A0A0A0</color>
+    <color name="colorTextMuted">#606060</color>
+
+    <!-- Accent Colors -->
+    <color name="colorAccentYellow">#FFB703</color>
+
+    <!-- Tag / Chip Colors -->
+    <color name="colorTagBackground">#2A1A1A</color>
+    <color name="colorTagText">#E63946</color>
+
+    <!-- Badge -->
+    <color name="colorBadge">#E63946</color>
+
+    <!-- Status Colors -->
+    <color name="colorSuccess">#2DC653</color>
+
+    <!-- Utility Colors -->
+    <color name="colorBlack">#000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorTransparent">#00000000</color>
+    <color name="colorOverlayDark">#CC000000</color>
+    <color name="colorHeaderDark">#1A0A0A</color>
+    <color name="colorNavBackground">#111111</color>
+    <color name="colorRowAlt">#141414</color>
+    <color name="colorBorderDeep">#3D1A1A</color>
+    <color name="colorIconContainer">#1F1F1F</color>
+    <color name="colorStripePattern">#242424</color>
+</resources>

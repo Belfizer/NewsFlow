@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    MainActivity is purely a container shell.
+    All content (CoordinatorLayout, sections, etc.) lives inside Fragments.
+    This layout provides: FrameLayout fragment container + bottom navigation bar.
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBackground"
+    tools:context=".activities.MainActivity">
+
+    <!-- Fragment container — fills all available space above bottom nav -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/colorBackground" />
+
+    <!-- Bottom navigation bar (included from separate layout file) -->
+    <include
+        android:id="@+id/bottomNavInclude"
+        layout="@layout/layout_bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+
+</LinearLayout>

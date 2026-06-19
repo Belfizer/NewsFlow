@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Search circle -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M11,4 C7.134,4 4,7.134 4,11 C4,14.866 7.134,18 11,18 C14.866,18 18,14.866 18,11 C18,7.134 14.866,4 11,4 Z"
+        android:strokeColor="@color/colorTextSecondary"
+        android:strokeWidth="1.8" />
+    <!-- Handle -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M16,16 L21,21"
+        android:strokeColor="@color/colorTextSecondary"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round" />
+</vector>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Assignment 4: Internet permission for Retrofit / NewsAPI -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Feature 1: Camera for ML Kit headline scanner -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+
+    <!-- F3: Push notification permission for Android 13+ -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.NewsApp">
+
+        <!-- F1: SplashActivity is the LAUNCHER — entry point of the app -->
+        <activity
+            android:name=".activities.SplashActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.NewsApp">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- F1: LoginActivity — Firebase Auth login screen -->
+        <activity
+            android:name=".activities.LoginActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.NewsApp"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- F1/F4: MainActivity — hosts all Fragments via FragmentManager -->
+        <activity
+            android:name=".activities.MainActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.NewsApp" />
+
+        <!-- F4: ReadingStatsActivity — Jetpack Compose stats screen -->
+        <activity
+            android:name=".activities.ReadingStatsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.NewsApp" />
+
+        <!-- Feature 1: ScanHeadlineActivity — ML Kit camera scanner -->
+        <activity
+            android:name=".activities.ScanHeadlineActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.NewsApp" />
+
+        <!-- F3: Firebase Cloud Messaging service -->
+        <service
+            android:name=".firebase.MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+    </application>
+
+</manifest>

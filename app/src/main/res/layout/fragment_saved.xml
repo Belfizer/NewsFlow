@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    L7 REQUIREMENT: TableLayout with stretchColumns
+    L9 REQUIREMENT: RadioGroup with styled pill chips
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBackground"
+    tools:context=".SavedFragment">
+
+    <!-- ============================================================
+         HEADER
+         ============================================================ -->
+    <TextView
+        android:id="@+id/tvSavedTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="@string/saved_title"
+        android:textColor="@color/colorTextPrimary"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif" />
+
+    <!-- ============================================================
+         L9 REQUIREMENT: RadioGroup with pill chip styled RadioButtons
+         ============================================================ -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="16dp"
+        android:clipToPadding="false">
+
+        <RadioGroup
+            android:id="@+id/radioGroupFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- "All" — active pill -->
+            <RadioButton
+                android:id="@+id/rbFilterAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_chip_selector"
+                android:button="@null"
+                android:checked="true"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:minHeight="40dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="@string/filter_all"
+                android:textColor="@color/color_chip_text_selector"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <!-- "Today" — inactive pill -->
+            <RadioButton
+                android:id="@+id/rbFilterToday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_chip_selector"
+                android:button="@null"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:minHeight="40dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="@string/filter_today"
+                android:textColor="@color/color_chip_text_selector"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <!-- "Yesterday" — new inactive pill -->
+            <RadioButton
+                android:id="@+id/rbFilterYesterday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_chip_selector"
+                android:button="@null"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:minHeight="40dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="Yesterday"
+                android:textColor="@color/color_chip_text_selector"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <!-- "This Week" — inactive pill -->
+            <RadioButton
+                android:id="@+id/rbFilterWeek"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_chip_selector"
+                android:button="@null"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:minHeight="40dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="@string/filter_week"
+                android:textColor="@color/color_chip_text_selector"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+        </RadioGroup>
+    </HorizontalScrollView>
+
+    <!-- ============================================================
+         L7 REQUIREMENT: TableLayout with stretchColumns="1"
+         ============================================================ -->
+    <TableLayout
+        android:id="@+id/savedArticlesTable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:stretchColumns="1"
+        android:background="@color/colorSurface">
+
+        <!-- Table Header Row -->
+        <TableRow
+            android:id="@+id/tableHeaderRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorSurfaceVariant"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/colHeaderDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/col_date"
+                style="@style/TableHeader" />
+
+            <TextView
+                android:id="@+id/colHeaderTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/col_title"
+                style="@style/TableHeader" />
+
+            <TextView
+                android:id="@+id/colHeaderSource"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/col_source"
+                style="@style/TableHeader" />
+        </TableRow>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/bg_divider" />
+
+        <!-- Row 1 — background #1A1A1A -->
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorSurface"
+            android:minHeight="48dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/row1_date"
+                style="@style/TableCell" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/row1_title"
+                android:ellipsize="end"
+                android:maxLines="1"
+                style="@style/TableCell" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/row1_source"
+                style="@style/TableCell" />
+        </TableRow>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/bg_divider" />
+
+        <!-- Row 2 — alt background #141414 -->
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorRowAlt"
+            android:minHeight="48dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/row2_date"
+                style="@style/TableCell" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/row2_title"
+                android:ellipsize="end"
+                android:maxLines="1"
+                style="@style/TableCell" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/row2_source"
+                style="@style/TableCell" />
+        </TableRow>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/bg_divider" />
+
+        <!-- Row 3 — background #1A1A1A -->
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorSurface"
+            android:minHeight="48dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/row3_date"
+                style="@style/TableCell" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/row3_title"
+                android:ellipsize="end"
+                android:maxLines="1"
+                style="@style/TableCell" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/row3_source"
+                style="@style/TableCell" />
+        </TableRow>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/bg_divider" />
+
+        <!-- Row 4 — alt background #141414 -->
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorRowAlt"
+            android:minHeight="48dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/row4_date"
+                style="@style/TableCell" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/row4_title"
+                android:ellipsize="end"
+                android:maxLines="1"
+                style="@style/TableCell" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/row4_source"
+                style="@style/TableCell" />
+        </TableRow>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/bg_divider" />
+
+        <!-- Row 5 — background #1A1A1A -->
+        <TableRow
+            android:id="@+id/tableRow5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorSurface"
+            android:minHeight="48dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/row5_date"
+                style="@style/TableCell" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/row5_title"
+                android:ellipsize="end"
+                android:maxLines="1"
+                style="@style/TableCell" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/row5_source"
+                style="@style/TableCell" />
+        </TableRow>
+
+    </TableLayout>
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bg_divider" />
+
+    <!-- Saved cards RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSavedArticles"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingBottom="80dp"
+        tools:listitem="@layout/item_news_card"
+        tools:itemCount="3" />
+
+    <!-- Empty State Text -->
+    <TextView
+        android:id="@+id/tvEmptyState"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:gravity="center"
+        android:text="No saved articles yet"
+        android:textColor="@color/colorTextMuted"
+        android:textSize="14sp"
+        android:visibility="gone" />
+
+</LinearLayout>

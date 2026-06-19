@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!-- ============================================================
+         TYPOGRAPHY STYLES
+         ============================================================ -->
+
+    <style name="TextStyle" parent="" />
+
+
+    <!-- Headlines: 18sp bold near-white -->
+    <style name="TextStyle.Headline">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorTextPrimary</item>
+    </style>
+
+    <!-- Card Headline: 15sp bold near-white -->
+    <style name="TextStyle.CardHeadline">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorTextPrimary</item>
+    </style>
+
+    <!-- Subheadline: 15sp semibold near-white -->
+    <style name="TextStyle.Subheadline">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/colorTextPrimary</item>
+    </style>
+
+    <!-- Body: 13sp regular secondary -->
+    <style name="TextStyle.Body">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/colorTextSecondary</item>
+    </style>
+
+    <!-- Caption: 11sp regular muted -->
+    <style name="TextStyle.Caption">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/colorTextMuted</item>
+    </style>
+
+    <!-- Category Label: 11sp bold uppercase red -->
+    <style name="TextStyle.CategoryLabel">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <!-- Article Body: 14sp regular secondary with line spacing -->
+    <style name="TextStyle.ArticleBody">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorTextSecondary</item>
+        <item name="android:lineSpacingMultiplier">1.4</item>
+    </style>
+
+    <!-- Section Title: 16sp bold white -->
+    <style name="TextStyle.SectionTitle">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorTextPrimary</item>
+    </style>
+
+    <!-- See All: 13sp red -->
+    <style name="TextStyle.SeeAll">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <!-- ============================================================
+         BUTTON STYLES
+         ============================================================ -->
+
+    <style name="ButtonStyle" parent="" />
+
+
+    <style name="ButtonStyle.Primary">
+        <item name="android:background">@drawable/bg_button_primary</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:minHeight">48dp</item>
+    </style>
+
+    <style name="ButtonStyle.Outline">
+        <item name="android:background">@drawable/bg_button_outline</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:minHeight">48dp</item>
+    </style>
+
+    <!-- ============================================================
+         CHIP STYLES
+         ============================================================ -->
+
+    <style name="ChipStyle" parent="" />
+
+
+    <style name="ChipStyle.Active">
+        <item name="android:background">@drawable/bg_chip_active</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="ChipStyle.Inactive">
+        <item name="android:background">@drawable/bg_chip_inactive</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- ============================================================
+         TAG STYLE
+         ============================================================ -->
+
+    <style name="TagStyle">
+        <item name="android:background">@drawable/bg_tag</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+    </style>
+
+    <!-- ============================================================
+         SETTINGS ROW STYLES
+         ============================================================ -->
+
+    <style name="SettingRowTitle">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorTextPrimary</item>
+    </style>
+
+    <style name="SettingRowSubtitle">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/colorTextMuted</item>
+    </style>
+
+    <!-- ============================================================
+         PROFILE STYLES
+         ============================================================ -->
+
+    <style name="TextStyle.ProfileStat">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="TextStyle.ProfileStatLabel">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/colorTextMuted</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- ============================================================
+         TABLE STYLES
+         ============================================================ -->
+
+    <style name="TableHeader">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="TableCell">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/colorTextSecondary</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+</resources>

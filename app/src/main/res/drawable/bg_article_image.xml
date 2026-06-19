@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Dark base with rounded top corners -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/colorSurfaceVariant" />
+            <corners
+                android:topLeftRadius="12dp"
+                android:topRightRadius="12dp"
+                android:bottomLeftRadius="0dp"
+                android:bottomRightRadius="0dp" />
+        </shape>
+    </item>
+    <!-- Bottom gradient overlay (bottom 40%): transparent to #000000 -->
+    <item android:top="120dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="270"
+                android:startColor="@color/colorTransparent"
+                android:endColor="@color/colorBlack"
+                android:type="linear" />
+        </shape>
+    </item>
+</layer-list>

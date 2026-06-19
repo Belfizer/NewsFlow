@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Bell body -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M18,16 L18,11 C18,8.238 16.209,5.9 13.7,5.174 C13.889,4.827 14,4.427 14,4 C14,2.895 13.105,2 12,2 C10.895,2 10,2.895 10,4 C10,4.427 10.111,4.827 10.3,5.174 C7.791,5.9 6,8.238 6,11 L6,16 L4,18 L20,18 Z"
+        android:strokeColor="@color/colorTextSecondary"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+    <!-- Clapper -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M10,18 C10,19.105 10.895,20 12,20 C13.105,20 14,19.105 14,18"
+        android:strokeColor="@color/colorTextSecondary"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round" />
+</vector>

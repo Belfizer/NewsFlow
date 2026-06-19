@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="260dp"
+    android:layout_height="160dp"
+    android:background="@drawable/bg_article_image"
+    android:clipToOutline="true">
+
+    <!-- Bottom overlay: category label + headline + meta row -->
+    <LinearLayout
+        android:id="@+id/featuredCardOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <!-- Category Label: bold red uppercase 10sp -->
+        <TextView
+            android:id="@+id/tvFeaturedCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/colorPrimary"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            tools:text="@string/featured_category_1" />
+
+        <!-- Headline: 15sp bold white max 2 lines -->
+        <TextView
+            android:id="@+id/tvFeaturedHeadline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif"
+            android:maxLines="2"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            tools:text="@string/featured_headline_1" />
+
+        <!-- Meta row: clock icon + read time + dot + source -->
+        <LinearLayout
+            android:id="@+id/featuredMetaRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/ivFeaturedClock"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_clock"
+                android:tint="@color/colorTextSecondary" />
+
+            <TextView
+                android:id="@+id/tvFeaturedReadTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/colorTextSecondary"
+                android:textSize="11sp"
+                tools:text="@string/featured_read_time_1" />
+
+            <TextView
+                android:id="@+id/tvFeaturedDot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:text="@string/dot_separator"
+                android:textColor="@color/colorTextMuted"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/tvFeaturedSource"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/colorTextSecondary"
+                android:textSize="11sp"
+                tools:text="@string/featured_source_1" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

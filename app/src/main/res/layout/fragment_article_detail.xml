@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    L10 REQUIREMENT: ConstraintLayout Flow tag cloud
+    - androidx.constraintlayout.helper.widget.Flow
+    - flow_wrapMode="chain"
+    - horizontalGap + verticalGap
+    - 6 tag TextViews
+-->
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context=".ArticleDetailFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="80dp">
+
+        <!-- Article banner image placeholder -->
+        <ImageView
+            android:id="@+id/ivArticleBanner"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:background="@drawable/bg_article_image"
+            android:contentDescription="@string/content_desc_article_image"
+            android:scaleType="centerCrop" />
+
+        <!-- Category label: BREAKING NEWS -->
+        <TextView
+            android:id="@+id/tvArticleCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_breaking_banner"
+            android:fontFamily="sans-serif"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:text="@string/label_breaking_news"
+            android:textColor="@color/colorWhite"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:textAllCaps="true" />
+
+        <!-- Article headline: 22sp bold white -->
+        <TextView
+            android:id="@+id/tvArticleHeadline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/article_headline"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <!-- Meta row: source circle + source name + dot + time + dot + read time -->
+        <LinearLayout
+            android:id="@+id/articleMetaRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <!-- Source icon circle (small) -->
+            <FrameLayout
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/bg_category_icon">
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_location"
+                    android:contentDescription="@null" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tvArticleSource"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/article_source"
+                android:textColor="@color/colorTextMuted"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:text="@string/dot_separator"
+                android:textColor="@color/colorTextMuted"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvArticleTimeAgo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="@string/article_time_ago"
+                android:textColor="@color/colorTextMuted"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:text="@string/dot_separator"
+                android:textColor="@color/colorTextMuted"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:src="@drawable/ic_clock"
+                android:contentDescription="@null" />
+
+            <TextView
+                android:id="@+id/tvArticleReadTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/article_read_time"
+                android:textColor="@color/colorTextMuted"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bg_divider" />
+
+        <!-- ============================================================
+             L10 REQUIREMENT: ConstraintLayout Flow tag cloud
+             ============================================================ -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/tagCloudContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp">
+
+            <!-- Tag 1: Politics -->
+            <TextView
+                android:id="@+id/tagPolitics"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_tag"
+                android:fontFamily="sans-serif"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:text="@string/tag_politics"
+                android:textColor="@color/colorPrimary"
+                android:textSize="12sp" />
+
+            <!-- Tag 2: World -->
+            <TextView
+                android:id="@+id/tagWorld"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_tag"
+                android:fontFamily="sans-serif"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:text="@string/tag_world"
+                android:textColor="@color/colorPrimary"
+                android:textSize="12sp" />
+
+            <!-- Tag 3: Economy -->
+            <TextView
+                android:id="@+id/tagEconomy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_tag"
+                android:fontFamily="sans-serif"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:text="@string/tag_economy"
+                android:textColor="@color/colorPrimary"
+                android:textSize="12sp" />
+
+            <!-- Tag 4: Breaking -->
+            <TextView
+                android:id="@+id/tagBreaking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_tag"
+                android:fontFamily="sans-serif"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:text="@string/tag_breaking"
+                android:textColor="@color/colorPrimary"
+                android:textSize="12sp" />
+
+            <!-- Tag 5: Analysis -->
+            <TextView
+                android:id="@+id/tagAnalysis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_tag"
+                android:fontFamily="sans-serif"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:text="@string/tag_analysis"
+                android:textColor="@color/colorPrimary"
+                android:textSize="12sp" />
+
+            <!-- Tag 6: Europe -->
+            <TextView
+                android:id="@+id/tagEurope"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_tag"
+                android:fontFamily="sans-serif"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:text="@string/tag_europe"
+                android:textColor="@color/colorPrimary"
+                android:textSize="12sp" />
+
+            <!-- L10: Flow helper widget — wrapping tag cloud -->
+            <androidx.constraintlayout.helper.widget.Flow
+                android:id="@+id/tagFlow"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="tagPolitics,tagWorld,tagEconomy,tagBreaking,tagAnalysis,tagEurope"
+                app:flow_horizontalGap="8dp"
+                app:flow_verticalGap="8dp"
+                app:flow_wrapMode="chain"
+                app:flow_horizontalStyle="packed"
+                app:flow_horizontalBias="0"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_divider" />
+
+        <!-- Article body text: 5-6 lines dummy text -->
+        <TextView
+            android:id="@+id/tvArticleBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp"
+            android:fontFamily="sans-serif"
+            android:lineSpacingMultiplier="1.4"
+            android:textColor="@color/colorTextSecondary"
+            android:textSize="14sp"
+            tools:text="@string/article_body" />
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bg_divider" />
+
+        <!-- Bottom action row: Read Full Article button + Bookmark outline button -->
+        <LinearLayout
+            android:id="@+id/articleActionRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:gravity="center_vertical">
+
+            <!-- Read Full Article — primary button, fills remaining space -->
+            <Button
+                android:id="@+id/btnReadFull"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/bg_button_primary"
+                android:fontFamily="sans-serif"
+                android:text="@string/btn_read_full"
+                android:textColor="@color/colorWhite"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:stateListAnimator="@null" />
+
+            <!-- Bookmark outline icon button -->
+            <FrameLayout
+                android:id="@+id/btnBookmarkOutline"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_button_outline">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_bookmark"
+                    android:tint="@color/colorPrimary"
+                    android:contentDescription="@string/content_desc_bookmark" />
+            </FrameLayout>
+
+            <!-- Feature 2: TTS speaker button — turns red when speaking -->
+            <ImageView
+                android:id="@+id/btnTts"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:padding="12dp"
+                android:src="@drawable/ic_speaker"
+                android:contentDescription="Read article aloud"
+                android:background="@drawable/bg_button_outline"
+                app:tint="#606060" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

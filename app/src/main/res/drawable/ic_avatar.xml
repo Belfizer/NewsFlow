@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Red circle base -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@color/colorPrimary" />
+        </shape>
+    </item>
+    <!-- White head oval (top 30%, centered, smaller) -->
+    <item
+        android:top="8dp"
+        android:left="14dp"
+        android:right="14dp"
+        android:bottom="20dp">
+        <shape android:shape="oval">
+            <solid android:color="@color/colorWhite" />
+        </shape>
+    </item>
+    <!-- White body arc (bottom half) -->
+    <item
+        android:top="26dp"
+        android:left="8dp"
+        android:right="8dp"
+        android:bottom="4dp">
+        <shape android:shape="oval">
+            <solid android:color="@color/colorWhite" />
+        </shape>
+    </item>
+</layer-list>

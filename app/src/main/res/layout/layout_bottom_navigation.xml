@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    L3 REQUIREMENT: LinearLayout horizontal with layout_weight="1" for 4 tabs
+    L5 REQUIREMENT: FrameLayout badge on Saved tab with layout_gravity="top|end"
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:orientation="horizontal"
+    android:background="@drawable/bg_bottom_nav"
+    android:gravity="center_vertical">
+
+    <!-- Tab 1: Home — ACTIVE (icon + label red) -->
+    <!-- L3: layout_weight="1" -->
+    <LinearLayout
+        android:id="@+id/tabHome"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="4dp">
+
+        <ImageView
+            android:id="@+id/ivTabHome"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_home"
+            android:tint="@color/colorPrimary"
+            android:contentDescription="@string/nav_home" />
+
+        <TextView
+            android:id="@+id/tvTabHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/nav_home"
+            android:textColor="@color/colorPrimary"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <!-- Tab 2: Search — inactive -->
+    <!-- L3: layout_weight="1" -->
+    <LinearLayout
+        android:id="@+id/tabSearch"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="4dp">
+
+        <ImageView
+            android:id="@+id/ivTabSearch"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_search"
+            android:tint="@color/colorTextMuted"
+            android:contentDescription="@string/nav_search" />
+
+        <TextView
+            android:id="@+id/tvTabSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/nav_search"
+            android:textColor="@color/colorTextMuted"
+            android:textSize="10sp" />
+
+    </LinearLayout>
+
+    <!-- Tab 3: Saved — inactive, with L5 BADGE FrameLayout wrapper -->
+    <!-- L3: layout_weight="1" outer wrapper -->
+    <!-- L5: FrameLayout containing the tab LinearLayout + badge overlay -->
+    <FrameLayout
+        android:id="@+id/tabSavedWrapper"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <!-- Tab inner LinearLayout -->
+        <LinearLayout
+            android:id="@+id/tabSaved"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="4dp">
+
+            <ImageView
+                android:id="@+id/ivTabSaved"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_bookmark"
+                android:tint="@color/colorTextMuted"
+                android:contentDescription="@string/nav_saved" />
+
+            <TextView
+                android:id="@+id/tvTabSaved"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/nav_saved"
+                android:textColor="@color/colorTextMuted"
+                android:textSize="10sp" />
+
+        </LinearLayout>
+
+        <!-- L5 REQUIREMENT: Badge "5" with layout_gravity="top|end" -->
+        <TextView
+            android:id="@+id/tvSavedBadge"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_gravity="top|end"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_badge"
+            android:gravity="center"
+            android:text="@string/saved_badge_count"
+            android:textColor="@color/colorWhite"
+            android:textSize="9sp"
+            android:textStyle="bold" />
+
+    </FrameLayout>
+
+    <!-- Tab 4: Profile — inactive -->
+    <!-- L3: layout_weight="1" -->
+    <LinearLayout
+        android:id="@+id/tabProfile"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="4dp">
+
+        <ImageView
+            android:id="@+id/ivTabProfile"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_profile"
+            android:tint="@color/colorTextMuted"
+            android:contentDescription="@string/nav_profile" />
+
+        <TextView
+            android:id="@+id/tvTabProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/nav_profile"
+            android:textColor="@color/colorTextMuted"
+            android:textSize="10sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

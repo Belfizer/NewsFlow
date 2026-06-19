@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    L2 REQUIREMENT: ConstraintLayout with Guideline + Barrier + Chain
+    - Guideline at 72% (vertical) — image stays right of this
+    - Barrier (bottom) — below whichever is taller: title or source
+    - Chain (horizontal, spread_inside) — category chip + read time + bookmark icon
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginTop="6dp"
+    android:layout_marginBottom="6dp"
+    android:background="@drawable/bg_card"
+    android:padding="12dp">
+
+    <!-- ============================================================
+         GUIDELINE: vertical at 72% — image sits to the right of this
+         ============================================================ -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.72" />
+
+    <!-- ============================================================
+         LEFT SIDE CONTENT (0 to guideline)
+         ============================================================ -->
+
+    <!-- Category chip: bg_chip_inactive, red text -->
+    <TextView
+        android:id="@+id/tvNewsCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_chip_inactive"
+        android:fontFamily="sans-serif"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:textAllCaps="true"
+        android:textColor="@color/colorPrimary"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/news_cat_1" />
+
+    <!-- Headline: 15sp bold white, max 3 lines -->
+    <TextView
+        android:id="@+id/tvNewsHeadline"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif"
+        android:maxLines="3"
+        android:textColor="@color/colorTextPrimary"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/guidelineImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvNewsCategory"
+        tools:text="@string/news_headline_1" />
+
+    <!-- Source name: 11sp secondary -->
+    <TextView
+        android:id="@+id/tvNewsSource"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/colorTextSecondary"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toStartOf="@id/guidelineImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvNewsHeadline"
+        tools:text="@string/news_source_1" />
+
+    <!-- Time ago: 11sp muted -->
+    <TextView
+        android:id="@+id/tvNewsTimeAgo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/colorTextMuted"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toStartOf="@id/guidelineImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvNewsSource"
+        tools:text="@string/news_time_1" />
+
+    <!-- ============================================================
+         RIGHT SIDE CONTENT (guideline to end)
+         ============================================================ -->
+
+    <!-- Article image placeholder: 90dp x 90dp -->
+    <ImageView
+        android:id="@+id/ivNewsImage"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/bg_image_placeholder"
+        android:contentDescription="@string/content_desc_article_image"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- ============================================================
+         BARRIER: placed below the taller of headline or source
+         ============================================================ -->
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrierContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="tvNewsTimeAgo,ivNewsImage" />
+
+    <!-- ============================================================
+         BOTTOM ROW: LinearLayout — consistent alignment across all cards
+         Bug Fix 3: replaced spread_inside chain with weighted LinearLayout
+         ============================================================ -->
+    <LinearLayout
+        android:id="@+id/bottomRow"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/ivNewsImage"
+        app:layout_constraintTop_toBottomOf="@id/barrierContent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- Category chip — takes remaining space -->
+        <TextView
+            android:id="@+id/tvBottomChip"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:textSize="10sp"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:background="@drawable/bg_chip_inactive"
+            tools:text="TECHNOLOGY" />
+
+        <!-- Read time badge — FIXED width, always same position -->
+        <TextView
+            android:id="@+id/tvReadTimeBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:textSize="10sp"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:background="@drawable/bg_button_primary"
+            tools:text="1 min" />
+
+        <!-- Bookmark icon — fixed size, always at end -->
+        <!-- Note: colorFilter is set programmatically in NewsAdapter via setColorFilter() -->
+        <ImageView
+            android:id="@+id/ivBookmark"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="6dp"
+            android:padding="4dp"
+            android:src="@drawable/ic_bookmark"
+            android:contentDescription="@string/content_desc_bookmark" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

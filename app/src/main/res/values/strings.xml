@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">NewsFlow</string>
+
+    <!-- Greeting -->
+    <string name="greeting">Good Morning, Ahmed 📰</string>
+    <string name="greeting_subtitle">Stay informed, stay ahead.</string>
+
+    <!-- Navigation Labels -->
+    <string name="nav_home">Home</string>
+    <string name="nav_search">Search</string>
+    <string name="nav_saved">Saved</string>
+    <string name="nav_profile">Profile</string>
+
+    <!-- Section Headers -->
+    <string name="section_breaking">BREAKING</string>
+    <string name="section_browse_category">Browse by Category</string>
+    <string name="section_see_all">See All</string>
+    <string name="section_latest_headlines">Latest Headlines</string>
+
+    <!-- Category Names -->
+    <string name="cat_top_stories">Top Stories</string>
+    <string name="cat_tech">Tech</string>
+    <string name="cat_sports">Sports</string>
+    <string name="cat_business">Business</string>
+    <string name="cat_health">Health</string>
+    <string name="cat_science">Science</string>
+    <string name="cat_entertainment">Entertainment</string>
+
+    <!-- Featured Card Dummy Data -->
+    <string name="featured_category_1">TECHNOLOGY</string>
+    <string name="featured_headline_1">AI Breakthrough Changes Everything</string>
+    <string name="featured_read_time_1">4 min read</string>
+    <string name="featured_source_1">TechCrunch</string>
+
+    <string name="featured_category_2">WORLD</string>
+    <string name="featured_headline_2">Global Summit Reaches Historic Climate Deal</string>
+    <string name="featured_read_time_2">6 min read</string>
+    <string name="featured_source_2">Reuters</string>
+
+    <string name="featured_category_3">BUSINESS</string>
+    <string name="featured_headline_3">Markets Surge as Fed Signals Rate Cuts</string>
+    <string name="featured_read_time_3">3 min read</string>
+    <string name="featured_source_3">Bloomberg</string>
+
+    <string name="featured_category_4">HEALTH</string>
+    <string name="featured_headline_4">New Study Reveals Key to Longevity</string>
+    <string name="featured_read_time_4">5 min read</string>
+    <string name="featured_source_4">The Guardian</string>
+
+    <string name="featured_category_5">SPORTS</string>
+    <string name="featured_headline_5">Champions League Final: Epic Showdown Tonight</string>
+    <string name="featured_read_time_5">2 min read</string>
+    <string name="featured_source_5">ESPN</string>
+
+    <!-- News Card Dummy Data -->
+    <string name="news_headline_1">Pakistan Launches First AI Research Centre at National University</string>
+    <string name="news_source_1">Dawn News</string>
+    <string name="news_time_1">2 hours ago</string>
+    <string name="news_cat_1">TECHNOLOGY</string>
+    <string name="news_read_1">5 min</string>
+
+    <string name="news_headline_2">Stock Exchange Hits Record High Amid Economic Recovery</string>
+    <string name="news_source_2">The News</string>
+    <string name="news_time_2">4 hours ago</string>
+    <string name="news_cat_2">BUSINESS</string>
+    <string name="news_read_2">3 min</string>
+
+    <string name="news_headline_3">Scientists Discover New Species Deep in Amazon Rainforest</string>
+    <string name="news_source_3">BBC Science</string>
+    <string name="news_time_3">6 hours ago</string>
+    <string name="news_cat_3">SCIENCE</string>
+    <string name="news_read_3">4 min</string>
+
+    <string name="news_headline_4">National Cricket Team Qualifies for World Cup Semi-Final</string>
+    <string name="news_source_4">Geo Sports</string>
+    <string name="news_time_4">8 hours ago</string>
+    <string name="news_cat_4">SPORTS</string>
+    <string name="news_read_4">2 min</string>
+
+    <string name="news_headline_5">Health Ministry Issues New Guidelines on Urban Air Quality</string>
+    <string name="news_source_5">ARY News</string>
+    <string name="news_time_5">10 hours ago</string>
+    <string name="news_cat_5">HEALTH</string>
+    <string name="news_read_5">6 min</string>
+
+    <!-- Saved Screen -->
+    <string name="saved_title">Saved Articles</string>
+    <string name="filter_all">All</string>
+    <string name="filter_today">Today</string>
+    <string name="filter_week">This Week</string>
+
+    <!-- Table Header -->
+    <string name="col_date">Date</string>
+    <string name="col_title">Title</string>
+    <string name="col_source">Source</string>
+
+    <!-- Table Dummy Rows -->
+    <string name="row1_date">May 10</string>
+    <string name="row1_title">AI Breakthrough Changes Everything</string>
+    <string name="row1_source">TechCrunch</string>
+
+    <string name="row2_date">May 9</string>
+    <string name="row2_title">Markets Surge as Fed Signals Rate Cuts</string>
+    <string name="row2_source">Bloomberg</string>
+
+    <string name="row3_date">May 9</string>
+    <string name="row3_title">New Species Found in Amazon</string>
+    <string name="row3_source">BBC</string>
+
+    <string name="row4_date">May 8</string>
+    <string name="row4_title">Climate Deal Reached at Global Summit</string>
+    <string name="row4_source">Reuters</string>
+
+    <string name="row5_date">May 8</string>
+    <string name="row5_title">Cricket Team in World Cup Semi-Final</string>
+    <string name="row5_source">ESPN</string>
+
+    <!-- Profile Screen -->
+    <string name="profile_name">Ahmed Raza</string>
+    <string name="profile_email">ahmed.raza@gmail.com</string>
+    <string name="profile_bio">News enthusiast. Always reading.</string>
+    <string name="profile_articles_read">47</string>
+    <string name="profile_saved_count">12</string>
+    <string name="profile_top_category">Tech</string>
+    <string name="label_articles_read">Articles Read</string>
+    <string name="label_saved">Saved</string>
+    <string name="label_top_category">Top Category</string>
+
+    <!-- Profile Action Buttons -->
+    <string name="btn_edit">Edit</string>
+    <string name="btn_share">Share</string>
+    <string name="btn_settings">Settings</string>
+
+    <!-- Settings Rows -->
+    <string name="setting_notifications">Push Notifications</string>
+    <string name="setting_notifications_sub">Get breaking news alerts</string>
+    <string name="setting_autosave">Auto-Save Articles</string>
+    <string name="setting_autosave_sub">Save articles for offline reading</string>
+    <string name="setting_edit_profile">Reading Analytics</string>
+    <string name="setting_edit_profile_sub">View your personalized reading stats</string>
+    <string name="setting_share_app">Logout</string>
+    <string name="setting_share_app_sub">Sign out of your account</string>
+
+    <!-- Article Detail -->
+    <string name="label_breaking_news">BREAKING NEWS</string>
+    <string name="article_headline">World Leaders Agree on Landmark Carbon Reduction Treaty</string>
+    <string name="article_source">BBC News</string>
+    <string name="article_time_ago">3 hours ago</string>
+    <string name="article_read_time">6 min read</string>
+    <string name="article_body">World leaders gathered in Geneva this week have agreed to a landmark carbon reduction treaty that promises to reshape global climate policy for the next three decades. The agreement, signed by representatives of 147 nations, sets ambitious targets for reducing greenhouse gas emissions and establishes a new international fund to support developing nations in their transition to clean energy. Analysts are calling this the most significant environmental accord since the Paris Agreement. The deal came after five days of intense negotiations, with key sticking points resolved in a final marathon session that lasted through the night. Scientists and environmental groups have welcomed the accord, though some critics argue the targets do not go far enough.</string>
+    <string name="btn_read_full">Read Full Article</string>
+
+    <!-- Tags -->
+    <string name="tag_politics">Politics</string>
+    <string name="tag_world">World</string>
+    <string name="tag_economy">Economy</string>
+    <string name="tag_breaking">Breaking</string>
+    <string name="tag_analysis">Analysis</string>
+    <string name="tag_europe">Europe</string>
+
+    <!-- Misc -->
+    <string name="notification_badge_count">3</string>
+    <string name="saved_badge_count">5</string>
+    <string name="dot_separator"> · </string>
+    <string name="read_time_suffix"> read</string>
+    <string name="content_desc_notification">Notifications</string>
+    <string name="content_desc_bookmark">Bookmark article</string>
+    <string name="content_desc_share">Share article</string>
+    <string name="content_desc_avatar">User avatar</string>
+    <string name="content_desc_article_image">Article image</string>
+    <string name="content_desc_category_icon">Category icon</string>
+
+    <!-- F1: Google Sign-In Web Client ID (from google-services.json — client_type 3) -->
+    <string name="default_web_client_id">PLACEHOLDER</string>
+</resources>
